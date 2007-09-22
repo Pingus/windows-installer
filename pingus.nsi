@@ -3,7 +3,7 @@
 !define NAME "Pingus"
 
 Name "${NAME}"
-OutFile "Pingus-0.7.exe"
+OutFile "Pingus-0.7.1.exe"
 
 #!define MUI_ICON "src/win32/icon1.ico"
 #!define MUI_UNICON "src/win32/icon1.ico"
