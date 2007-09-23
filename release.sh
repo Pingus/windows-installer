@@ -4,6 +4,7 @@ echo "Exporting svn"
 svn export . pingus
 rm -rf pingus/contrib
 rm -rf pingus/doc
+rm -rf pingus/lib
 rm -rf pingus/src
 rm -f pingus/pingus.sln
 rm -f pingus/pingus.vcproj
