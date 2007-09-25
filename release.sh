@@ -19,6 +19,7 @@ rm -f pingus/xml2sexpr.rb
 cp Release/pingus.exe pingus
 cp ../windows_installer/*.dll pingus
 cp ../windows_installer/Microsoft.VC80.CRT.manifest pingus
+cp ../windows_installer/pingus.exe.config pingus
 
 echo "Creating installer"
 "c:/Program Files/NSIS/makensis.exe" /NOCD ../windows_installer/pingus.nsi
