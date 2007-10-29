@@ -1,9 +1,10 @@
 !include "MUI.nsh"
 
 !define NAME "Pingus"
+!define VERSION "0.7.2"
 
 Name "${NAME}"
-OutFile "Pingus-0.7.2.exe"
+OutFile "${NAME}-${VERSION}.exe"
 
 #!define MUI_ICON "src/win32/icon1.ico"
 #!define MUI_UNICON "src/win32/icon1.ico"
@@ -42,6 +43,12 @@ Section "${NAME}" SecDummy
   SetOutPath "$INSTDIR"
   File /r "pingus\*.*"
   WriteRegStr HKCU "Software\${NAME}" "" $INSTDIR
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayName" "${NAME}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayVersion" "${VERSION}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "InstallLocation" $INSTDIR
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "NoModify" 1
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "NoRepair" 1
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory "$SMPROGRAMS\$STARTMENU_FOLDER"
     CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\${NAME}.lnk" "$INSTDIR\pingus.exe"
@@ -61,5 +68,6 @@ Section "Uninstall"
   RMDir "$SMPROGRAMS\$MUI_TEMP"
 
   DeleteRegKey /ifempty HKCU "Software\${NAME}"
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}"
 SectionEnd
 
