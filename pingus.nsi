@@ -6,6 +6,8 @@
 Name "${NAME}"
 OutFile "${NAME}-${VERSION}.exe"
 
+RequestExecutionLevel admin
+
 #!define MUI_ICON "src/win32/icon1.ico"
 #!define MUI_UNICON "src/win32/icon1.ico"
 
