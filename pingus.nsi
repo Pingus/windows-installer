@@ -1,15 +1,16 @@
 !include "MUI.nsh"
 
 !define NAME "Pingus"
-!define VERSION "0.7.2"
+# !define VERSION "0.7.5"
+# !define PINGUSDIR "pingus"
 
 Name "${NAME}"
 OutFile "${NAME}-${VERSION}.exe"
 
 RequestExecutionLevel admin
 
-#!define MUI_ICON "src/win32/icon1.ico"
-#!define MUI_UNICON "src/win32/icon1.ico"
+#!define MUI_ICON "${PINGUSDIR}/src/win32/icon1.ico"
+#!define MUI_UNICON "${PINGUSDIR}/src/win32/icon1.ico"
 
 InstallDir "$PROGRAMFILES\${NAME}"
 InstallDirRegKey HKCU "Software\${NAME}" ""
@@ -20,6 +21,7 @@ Var STARTMENU_FOLDER
 !define MUI_ABORTWARNING
 
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "${PINGUSDIR}/COPYING"
 !insertmacro MUI_PAGE_DIRECTORY
 
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
@@ -43,7 +45,7 @@ Var STARTMENU_FOLDER
 Section "${NAME}" SecDummy
   SectionIn RO
   SetOutPath "$INSTDIR"
-  File /r "pingus\*.*"
+  File /r "${PINGUSDIR}/*.*"
   WriteRegStr HKCU "Software\${NAME}" "" $INSTDIR
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayName" "${NAME}"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayVersion" "${VERSION}"
