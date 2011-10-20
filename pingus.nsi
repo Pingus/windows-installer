@@ -9,8 +9,10 @@ OutFile "${NAME}-${VERSION}.exe"
 
 RequestExecutionLevel admin
 
-#!define MUI_ICON "${PINGUSDIR}/src/win32/icon1.ico"
-#!define MUI_UNICON "${PINGUSDIR}/src/win32/icon1.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "win.bmp"
+
+!define MUI_ICON "walker.ico"
+!define MUI_UNICON "walker.ico"
 
 InstallDir "$PROGRAMFILES\${NAME}"
 InstallDirRegKey HKCU "Software\${NAME}" ""
