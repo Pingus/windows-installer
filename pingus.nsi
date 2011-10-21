@@ -11,8 +11,8 @@ RequestExecutionLevel admin
 
 !define MUI_WELCOMEFINISHPAGE_BITMAP "win.bmp"
 
-!define MUI_ICON "walker.ico"
-!define MUI_UNICON "walker.ico"
+!define MUI_ICON "pingus.ico"
+!define MUI_UNICON "pingus.ico"
 
 InstallDir "$PROGRAMFILES\${NAME}"
 InstallDirRegKey HKCU "Software\${NAME}" ""
