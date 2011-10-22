@@ -67,6 +67,10 @@ SectionEnd
 
 
 Section "Uninstall"
+  Delete "$INSTDIR\Uninstall.exe"
+  Delete "$INSTDIR\stdout.txt"
+  Delete "$INSTDIR\stderr.txt"
+
   !include "uninstall_files.nsh"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
