@@ -12,6 +12,8 @@ all:
 	cp -vi ../pingus/build-win32/pingus.exe pingus/
 	cp -vi lib/*.dll pingus/
 
+	./generate_install_nsh.sh
+
 	makensis -NOCD $(NSISFLAGS) pingus.nsi 
 
 .PHONY: all

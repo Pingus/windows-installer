@@ -47,7 +47,9 @@ Var STARTMENU_FOLDER
 Section "${NAME}" SecDummy
   SectionIn RO
   SetOutPath "$INSTDIR"
-  File /r "${PINGUSDIR}/*.*"
+
+  !include "install_files.nsh"
+
   WriteRegStr HKCU "Software\${NAME}" "" $INSTDIR
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayName" "${NAME}"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}" "DisplayVersion" "${VERSION}"
@@ -65,7 +67,7 @@ SectionEnd
 
 
 Section "Uninstall"
-  RMDir /r "$INSTDIR"
+  !include "uninstall_files.nsh"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
 

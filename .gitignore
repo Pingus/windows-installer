@@ -1,4 +1,6 @@
 *~
-*.exe
-pingus
-.sconsign.dblite
+/*.exe
+/pingus
+/.sconsign.dblite
+/install_files.nsh
+/uninstall_files.nsh
